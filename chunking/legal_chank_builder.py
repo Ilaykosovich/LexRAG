@@ -6,7 +6,7 @@ import re
 from dataclasses import dataclass
 from typing import Any, Dict, List, Tuple
 
-from PdfProcessor import ExtractItem
+from pdf_processor import ExtractItem
 
 article_PART_RE = re.compile(r"\d+|\([^)]+\)")
 

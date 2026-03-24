@@ -5,7 +5,7 @@ import time
 from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any, Dict, List
-
+from RouteQuestion import RouteQuestion
 
 class DocumentRouter:
     """
@@ -209,8 +209,8 @@ class DocumentRouter:
 
             matched_unigrams = sorted(question_unigrams & doc_unigrams)
             matched_bigrams = sorted(question_bigrams & doc_bigrams)
-            # if len(matched_bigrams) < 1:
-            #     continue
+            if len(matched_bigrams) < 1:
+                continue
 
             unigram_score = sum(
                 1 / self.unigram_df.get(tok, self.num_documents)  # Изменение здесь
@@ -404,3 +404,4 @@ class DocumentRouter:
         print("\nTop bigrams by document frequency:")
         for token, freq in top_bigrams:
             print(f"  {token}: {freq}")
+
